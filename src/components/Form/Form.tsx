@@ -4,7 +4,6 @@ import { FormValues } from "../../interfaces/interfaces";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast, { Toaster } from "react-hot-toast";
-import Button from "../Button/Button";
 
 const CamperForm: React.FC = () => {
   const emailRegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -90,9 +89,9 @@ const CamperForm: React.FC = () => {
                 />
                 <ErrorMessage name="comment" component="span" />
               </div>
-              <Button type="submit" disabled={Object.keys(errors).length > 0}>
+              <button type="submit" disabled={Object.keys(errors).length > 0}>
                 Send
-              </Button>
+              </button>
             </Form>
           )}
         </Formik>

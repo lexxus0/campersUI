@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import Button from "../Button/Button";
+
 import {
   FaIceCream,
   FaRadio,
@@ -186,7 +186,12 @@ const SideFilterBar = () => {
         ))}
       </div>
       <div className="flex gap-3">
-        <Button onClick={handleSearch}>Search</Button>
+        <button
+          className="bg-red-500 py-4 w-[170px] rounded-[200px] font-medium text-base text-white transition-all duration-[0.7] ease-[ease-out] hover:bg-red-700"
+          onClick={handleSearch}
+        >
+          Search
+        </button>
         <button
           className="bg-blue-500 py-4 w-[170px] rounded-[200px] font-medium text-base text-white transition-all duration-[0.7] ease-[ease-out] hover:bg-blue-700"
           onClick={handleReset}
