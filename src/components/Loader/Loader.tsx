@@ -2,7 +2,7 @@ import { TailSpin } from "react-loader-spinner";
 
 const Loader: React.FC = () => {
   return (
-    <div>
+    <div className="flex justify-center items-center h-screen">
       <TailSpin
         visible={true}
         height="80"
@@ -10,8 +10,6 @@ const Loader: React.FC = () => {
         color="#0000FF"
         ariaLabel="tail-spin-loading"
         radius="1"
-        wrapperStyle={{}}
-        wrapperClass=""
       />
     </div>
   );

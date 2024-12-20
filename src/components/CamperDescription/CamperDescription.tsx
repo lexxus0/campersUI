@@ -2,14 +2,17 @@ import React from "react";
 import { Camper as CamperForProps, Gallery } from "../../interfaces/interfaces";
 import { FaStar } from "react-icons/fa";
 import { CiMap } from "react-icons/ci";
+import Loader from "../Loader/Loader";
 
 interface CamperDescriptionProps {
   camper: CamperForProps;
 }
 
 const CamperDescription: React.FC<CamperDescriptionProps> = ({ camper }) => {
+  if (!camper) return <Loader />;
   const { name, reviews, description, rating, location, price, gallery } =
     camper;
+
   return (
     <div className="container min-h-[100%]">
       <h4 className="font-semibold text-2xl">{name}</h4>

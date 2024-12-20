@@ -24,9 +24,16 @@ const CampersList: React.FC = () => {
   const totalPages = Math.ceil(totalItems / limit);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [currentPage, setCurrentPage] = useState(
-    parseInt(searchParams.get("page") || "1", 10)
-  );
+  const [currentPage, setCurrentPage] = useState<number>(() => {
+    return Number(searchParams.get("page")) || 1;
+  });
+
+  useEffect(() => {
+    const pageFromParams = Number(searchParams.get("page")) || 1;
+    if (currentPage !== pageFromParams) {
+      setCurrentPage(pageFromParams);
+    }
+  }, [searchParams, currentPage]);
 
   const [activeCategory, setActiveCategory] = useState<"all" | "favorites">(
     (searchParams.get("category") as "all" | "favorites") || "all"

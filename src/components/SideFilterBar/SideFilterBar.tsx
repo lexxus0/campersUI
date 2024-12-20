@@ -93,16 +93,16 @@ const SideFilterBar = () => {
     const defaultFilters = { location: "", equipment: [], form: "" };
     setSelectedFilters(defaultFilters);
     setCurrentPage(1);
-
     dispatch(resetFilters());
     dispatch(clearCampers());
-    dispatch(fetchCampers({ filters: defaultFilters, page: 1, limit }));
+    dispatch(fetchCampers({ filters: defaultFilters, page: 1, limit: 4 }));
 
     setSearchParams({
       location: "",
       equipment: "",
       form: "",
       page: "1",
+      limit: "4",
     });
   };
 

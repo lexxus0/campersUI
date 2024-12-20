@@ -21,11 +21,19 @@ const Reviews: React.FC = () => {
     );
   };
 
+  if (!camper || !camper.reviews || camper.reviews.length === 0) {
+    return (
+      <div className="w-[631px] text-center text-[#475467]">
+        <p>No reviews available for this camper.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="w-[631px] flex gap-11 flex-col">
-      {camper.reviews.map((review: IReviews) => {
+      {camper.reviews.map((review: IReviews, i: number) => {
         return (
-          <div className="flex flex-col gap-4">
+          <div key={i} className="flex flex-col gap-4">
             <div className="flex items-center gap-4">
               <p className="flex justify-center items-center w-[60px] h-[60px] bg-[#f2f4f7] font-semibold text-2xl leading-[133%] text-[#e44848] rounded-[60px] text-center mb-1">
                 {review.reviewer_name[0]}
